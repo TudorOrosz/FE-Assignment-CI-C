@@ -5,12 +5,12 @@ export interface Show {
   language: string;
   genres: string[];
   status: string;
-  rating: { average: number | null };
-  summary: string | null;
-  image: { medium: string; original: string } | null;
   premiered: string | null;
   officialSite: string | null;
+  rating: { average: number | null };
   network: { name: string } | null;
+  image: { medium: string; original: string } | null;
+  summary: string | null;
 }
 
 export interface SearchResult {

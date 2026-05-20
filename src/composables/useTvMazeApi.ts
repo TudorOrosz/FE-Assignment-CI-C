@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 import type { Show } from '../types/tvmaze';
 
-const tvmazeBase = 'https://api.tvmaze.com';
+const tvmazeBaseURL = 'https://api.tvmaze.com';
 
 export function useTvMazeApi() {
   const popularShows = ref<Show[]>([]);
@@ -13,7 +13,7 @@ export function useTvMazeApi() {
     error.value = null;
 
     try {
-      const response = await fetch(`${tvmazeBase}/shows?page=0`);
+      const response = await fetch(`${tvmazeBaseURL}/shows?page=0`);
       if (!response.ok) {
         throw new Error('Failed to load popular shows');
       }
@@ -35,7 +35,7 @@ export function useTvMazeApi() {
     error.value = null;
 
     try {
-      const response = await fetch(`${tvmazeBase}/shows/${id}`);
+      const response = await fetch(`${tvmazeBaseURL}/shows/${id}`);
       if (!response.ok) {
         throw new Error('Failed to load show details');
       }
@@ -53,7 +53,7 @@ export function useTvMazeApi() {
     error.value = null;
 
     try {
-      const response = await fetch(`${tvmazeBase}/search/shows?q=${encodeURIComponent(query)}`);
+      const response = await fetch(`${tvmazeBaseURL}/search/shows?q=${encodeURIComponent(query)}`);
       if (!response.ok) {
         throw new Error('Failed to search shows');
       }

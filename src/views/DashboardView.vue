@@ -26,7 +26,7 @@ import { computed, onMounted } from 'vue';
 import { useTvMazeApi } from '../composables/useTvMazeApi';
 import GenreRow from '../components/GenreRow.vue';
 
-const genreCategories = ['Drama', 'Comedy', 'Sci-Fi', 'Action', 'Reality', 'Sports'];
+const genreCategories = ['Drama', 'Comedy', 'Action', 'Science-Fiction', 'Thriller', 'Romance'];
 
 const { popularShows, loading, error, fetchPopularShows } = useTvMazeApi();
 
@@ -36,8 +36,8 @@ onMounted(() => {
 
 const genreGroups = computed(() => {
   return genreCategories.map((title) => {
-    const shows = popularShows.value.filter((show) => show.genres.includes(title)).slice(0, 8);
-    return { title, shows: shows.length ? shows : popularShows.value.slice(0, 8) };
+    const shows = popularShows.value.filter((show) => show.genres.includes(title)).slice(0, 5);
+    return { title, shows: shows.length ? shows : popularShows.value.slice(0, 5) };
   });
 });
 </script>
