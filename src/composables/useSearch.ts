@@ -12,12 +12,6 @@ export function useSearch(initialQuery = '') {
     router.push({ name: 'Search', query: { q: query.value.trim() } });
   }
 
-  watch(query, (value) => {
-    if (!value.trim()) {
-      return;
-    }
-  });
-
   return {
     query,
     submitSearch,

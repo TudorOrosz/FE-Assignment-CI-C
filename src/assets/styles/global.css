@@ -166,7 +166,8 @@ header.header:focus {
 .poster {
   min-height: 210px;
   border-radius: 16px;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
 }
 
@@ -202,7 +203,8 @@ header.header:focus {
 .detail-poster {
   min-height: 320px;
   border-radius: 18px;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
 }
 
@@ -237,5 +239,9 @@ header.header:focus {
 @media (max-width: 640px) {
   .genre-list {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .search-row button {
+    display: none;
   }
 }

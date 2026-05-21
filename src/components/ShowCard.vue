@@ -21,7 +21,7 @@ const props = defineProps<{ show: Show }>();
 const router = useRouter();
 
 const posterStyle = computed(() => ({
-  backgroundImage: props.show.image ? `url(${props.show.image.medium})` : `linear-gradient(135deg, rgba(0,76,76,0.15), rgba(0,76,76,0.05))`,
+  backgroundImage: props.show.image ? `url(${props.show.image.original})` : `linear-gradient(135deg, rgba(0,76,76,0.15), rgba(0,76,76,0.05))`,
 }));
 
 function navigateToShow() {

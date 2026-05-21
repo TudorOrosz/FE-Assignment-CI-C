@@ -51,6 +51,7 @@ export function useTvMazeApi() {
   async function searchShows(query: string) {
     loading.value = true;
     error.value = null;
+    console.log(query)
 
     try {
       const response = await fetch(`${tvmazeBaseURL}/search/shows?q=${encodeURIComponent(query)}`);
