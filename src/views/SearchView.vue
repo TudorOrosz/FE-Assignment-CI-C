@@ -27,10 +27,11 @@
 import { onMounted, ref, watch } from 'vue';
 import { useTvMazeApi } from '../composables/useTvMazeApi';
 import ShowCard from '../components/ShowCard.vue';
+import type { Show } from '../types/tvmaze';
 
 const props = defineProps<{ query: string }>();
 
-const searchResults = ref([]);
+const searchResults = ref<Show[]>([]);
 const { searchShows, loading, error } = useTvMazeApi();
 
 async function runSearch() {

@@ -6,8 +6,8 @@
           <div class="detail-poster" :style="posterStyle" aria-hidden="true"></div>
           <div class="detail-meta">
             <h1>{{ show.name }}</h1>
-            <p class="muted">{{ show.genres.join(' • ') || 'Drama' }}</p>
-            <p class="detail-label">Rating: <strong>{{ show.rating.average ?? 'N/A' }}</strong></p>
+            <p class="muted">{{show.genres.length ? show.genres.join(' • ') : '-' }}</p>
+            <p class="detail-label">Rating: <strong>{{ show.rating.average ?? '-' }}</strong></p>
             <p class="detail-label">Status: <strong>{{ show.status }}</strong></p>
             <p class="detail-label">Premiered: <strong>{{ show.premiered || '—' }}</strong></p>
             <a v-if="show.officialSite" :href="show.officialSite" target="_blank" rel="noreferrer" class="btn detail-link">Visit official site</a>
@@ -29,9 +29,10 @@
 import { computed, onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { useTvMazeApi } from '../composables/useTvMazeApi';
+import type { Show } from '../types/tvmaze';
 
 const route = useRoute();
-const show = ref(null);
+const show = ref<Show | null>(null);
 const { fetchShowDetails, loading, error } = useTvMazeApi();
 
 async function loadDetails() {

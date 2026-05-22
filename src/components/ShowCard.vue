@@ -3,9 +3,9 @@
     <div class="poster" :style="posterStyle" aria-hidden="true"></div>
     <div class="show-card-content">
       <h3>{{ show.name }}</h3>
-      <p class="muted">{{ show.genres.join(' • ') || 'Drama' }}</p>
+      <p class="muted">{{ show.genres.length ? show.genres.join(' • ') : '-' }}</p>
       <div class="show-meta">
-        <span class="rating">★ {{ show.rating.average ?? 'N/A' }}</span>
+        <span class="rating">★ {{ show.rating.average ?? '—' }}</span>
         <span class="year">{{ show.premiered ? show.premiered.slice(0, 4) : '—' }}</span>
       </div>
     </div>
