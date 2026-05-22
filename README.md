@@ -4,10 +4,11 @@ A compact Vue 3 + TypeScript dashboard for browsing TVMaze shows by genre, searc
 
 ## Why this stack?
 
-- **Vue 3 + Composition API**: good fit for ABN AMRO and clean component structure.
-- **TypeScript**: improves maintainability and makes the API contract explicit.
+- **Vue 3**: chosen FE framework within the bank
+  - Composition API: better logic composition, reusability, and TypeScript support
+- **TypeScript**: improves maintainability and predictability; and is also the FE language used within the bank
 - **Vite**: minimal scaffold and fast dev workflow.
-- **Vitest + Testing Library**: unit-test focused, lightweight, and easy to integrate.
+- **Playwright**: e2e testing
 
 ## Folder structure
 

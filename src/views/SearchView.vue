@@ -44,7 +44,7 @@ async function runSearch() {
 }
 
 onMounted(runSearch);
-watch(() => props.query, runSearch);
+watch(() => props.query, runSearch); // keeps the reactive search results when navigating back to this view
 </script>
 
 <style scoped>
