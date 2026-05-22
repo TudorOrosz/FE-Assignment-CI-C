@@ -6,16 +6,16 @@
         <p class="muted">Results for: <strong>"{{ query }}"</strong></p>
       </div>
 
-      <div v-if="error" class="card error-message">
+      <div v-if="loading" class="loading card">Searching…</div>
+
+      <div v-else-if="error" class="card error-message">
         <p>Unable to search shows.</p>
         <p class="muted">{{ error }}</p>
-      </div>
-
-      <div v-if="loading" class="loading card">Searching…</div>
+      </div> 
 
       <section v-else class="genre-list">
         <ShowCard v-for="show in searchResults" :key="show.id" :show="show" />
-        <div v-if="!loading && !searchResults.length" class="card empty-state">
+        <div v-if="!searchResults.length" class="card empty-state">
           <p>No results found for your query.</p>
         </div>
       </section>
