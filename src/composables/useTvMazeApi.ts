@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import type { Show } from '../types/tvmaze';
+import type { SearchResult, Show } from '../types/tvmaze';
 
 const tvmazeBaseURL = 'https://api.tvmaze.com';
 
@@ -57,7 +57,7 @@ export function useTvMazeApi() {
       if (!response.ok) {
         throw new Error('Failed to search shows');
       }
-      const data = (await response.json()) as Array<{ show: Show }>;
+      const data = (await response.json()) as SearchResult[];
       return data.map((entry) => entry.show);
     } catch (err) {
       error.value = err instanceof Error ? err.message : String(err);

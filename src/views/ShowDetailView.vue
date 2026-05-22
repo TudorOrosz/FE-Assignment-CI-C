@@ -1,7 +1,14 @@
 <template>
   <div class="page-shell">
     <div class="content">
-      <div class="card detail-card" v-if="show">
+      <div v-if="loading" class="loading card">Loading show details…</div>
+
+      <div v-else-if="error" class="card error-message">
+        <p>Unable to load details.</p>
+        <p class="muted">{{ error }}</p>
+      </div>
+
+      <div class="card detail-card" v-else-if="show">
         <div class="detail-top">
           <div class="detail-poster" :style="posterStyle" aria-hidden="true"></div>
           <div class="detail-meta">
@@ -14,12 +21,6 @@
           </div>
         </div>
         <div class="summary" v-html="show.summary || '<p>No description available.</p>'"></div>
-      </div>
-
-      <div v-if="loading" class="loading card">Loading show details…</div>
-      <div v-if="error" class="card error-message">
-        <p>Unable to load details.</p>
-        <p class="muted">{{ error }}</p>
       </div>
     </div>
   </div>
