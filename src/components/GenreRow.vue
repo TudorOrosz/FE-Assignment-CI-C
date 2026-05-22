@@ -16,3 +16,29 @@ import ShowCard from './ShowCard.vue';
 
 const props = defineProps<{ title: string; shows: Show[] }>();
 </script>
+
+<style scoped>
+.genre-row {
+  margin-bottom: 24px;
+}
+
+.genre-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.genre-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .genre-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+</style>

@@ -46,3 +46,22 @@ async function runSearch() {
 onMounted(runSearch);
 watch(() => props.query, runSearch);
 </script>
+
+<style scoped>
+.genre-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+}
+
+@media (max-width: 640px) {
+  .genre-list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+</style>

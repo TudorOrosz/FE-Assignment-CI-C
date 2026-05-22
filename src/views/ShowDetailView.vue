@@ -50,3 +50,48 @@ const posterStyle = computed(() => {
   return { backgroundImage: `url(${show.value.image.original})` };
 });
 </script>
+
+<style scoped>
+.detail-card {
+  display: grid;
+  gap: 24px;
+}
+
+.detail-top {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.detail-poster {
+  min-height: 320px;
+  border-radius: 18px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.detail-meta h1 {
+  margin: 0 0 12px;
+}
+
+.detail-label {
+  margin: 8px 0;
+}
+
+.detail-link {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.summary {
+  line-height: 1.75;
+}
+
+@media (max-width: 840px) {
+  .detail-top {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
