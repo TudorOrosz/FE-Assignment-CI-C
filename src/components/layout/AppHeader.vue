@@ -22,12 +22,12 @@ import { useRouter } from 'vue-router';
 import { useSearch } from '../../composables/useSearch';
 
 const router = useRouter();
+const { query, submitSearch } = useSearch();
 
 function navigateToDashboard() {
-  router.push({ name: 'Dashboard' });
+  query.value = '';
+  router.push({ name: 'Dashboard', query: { reset: Date.now().toString() } });
 }
-
-const { query, submitSearch } = useSearch();
 </script>
 
 <style scoped>

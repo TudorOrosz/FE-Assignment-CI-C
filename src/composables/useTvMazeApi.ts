@@ -5,6 +5,7 @@ const tvmazeBaseURL = 'https://api.tvmaze.com';
 
 export function useTvMazeApi() {
   const popularShows = ref<Show[]>([]);
+  const genreShows = ref<Record<string, Show[]>>({});
   const loading = ref(false);
   const error = ref<string | null>(null);
 
@@ -67,12 +68,42 @@ export function useTvMazeApi() {
     }
   }
 
+  async function fetchMoreShowsByGenre(genre: string, maxPages: number = 10) {
+    loading.value = true;
+    error.value = null;
+
+    try {
+      const shows: Show[] = [];
+      for (let page = 1; page < maxPages; page++) {
+        const response = await fetch(`${tvmazeBaseURL}/shows?page=${page}`);
+        if (!response.ok) break;
+        const data = (await response.json()) as Show[];
+        if (data.length === 0) break;
+
+        const filtered = data.filter((show) => show.genres.includes(genre));
+        shows.push(...filtered);
+
+        if (shows.length >= 30) break;
+      }
+
+      genreShows.value[genre] = shows;
+      return shows;
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : String(err);
+      return [];
+    } finally {
+      loading.value = false;
+    }
+  }
+
   return {
     popularShows,
+    genreShows,
     loading,
     error,
     fetchPopularShows,
     fetchShowDetails,
     searchShows,
+    fetchMoreShowsByGenre,
   };
 }
