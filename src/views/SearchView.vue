@@ -61,7 +61,7 @@ watch(() => props.query, runSearch); // keeps the reactive search results when n
 
 @media (max-width: 640px) {
   .genre-list {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 </style>
