@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@rolldown/binding-darwin-arm64": "^1.0.1",
     "@testing-library/vue": "^6.6.1",
     "@vitejs/plugin-vue": "^4.3.0",
     "@vue/test-utils": "^2.4.10",
