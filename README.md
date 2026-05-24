@@ -110,6 +110,8 @@ Start dev server:
 npm run dev
 ```
 
+By default, app runs on `http://localhost:4173`.
+
 Build:
 
 ```bash
