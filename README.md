@@ -21,7 +21,7 @@ Users can:
 
 ### Dashboard
 - Route: `/`
-- Initial data source: `GET /shows?page=0`
+- Initial data source: Page 0 of the shows endpoint
 - Shows are sorted by rating (descending)
 - Default dashboard sections: Drama, Comedy, Action, Science-Fiction, Thriller, Romance
 - Limit per default section: 5 cards
@@ -35,10 +35,8 @@ Users can:
   - Results are stored per genre in `genreShows` cache
 
 ### Search
-- Route: `/search?q=<term>`
 - Uses TVMaze search endpoint: `GET /search/shows?q=...`
 - Search query is URL-based (shareable/back-forward friendly)
-- If query is empty, no request is made
 
 ### Show details
 - Route: `/show/:id`
@@ -62,12 +60,12 @@ Genre filtering loads more data on demand, but never scans the full catalog.
 
 Why:
 - Balances completeness with responsiveness
-- Avoids unbounded loops and slow worst-case requests
+- Avoids unbounded loops and slow requests
 
 Trade-off:
 - A very rare genre might still return fewer than 30 results within the page cap
 
-### 3) Separate data stores for clarity
+### 3) Separate data storing for clarity
 The app keeps:
 - `popularShows` for dashboard bootstrap data
 - `genreShows` for genre-specific lazy-loaded data

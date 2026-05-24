@@ -27,11 +27,16 @@ vi.mock('../../src/composables/useTvMazeApi', async () => {
     makeShow(3, 'Drama Three', ['Drama']),
     makeShow(4, 'Drama Four', ['Drama']),
     makeShow(5, 'Drama Five', ['Drama']),
-    makeShow(6, 'Comedy One', ['Comedy']),
-    makeShow(7, 'Comedy Two', ['Comedy']),
-    makeShow(8, 'Comedy Three', ['Comedy']),
-    makeShow(9, 'Comedy Four', ['Comedy']),
-    makeShow(10, 'Comedy Five', ['Comedy']),
+    makeShow(6, 'Drama Six', ['Drama']),
+    makeShow(7, 'Drama Seven', ['Drama']),
+    makeShow(8, 'Drama Eight', ['Drama']),
+    makeShow(9, 'Comedy One', ['Comedy']),
+    makeShow(10, 'Comedy Two', ['Comedy']),
+    makeShow(11, 'Comedy Three', ['Comedy']),
+    makeShow(12, 'Comedy Four', ['Comedy']),
+    makeShow(13, 'Comedy Five', ['Comedy']),
+    makeShow(14, 'Comedy Six', ['Comedy']),
+    makeShow(15, 'Comedy Seven', ['Comedy']),
   ]);
 
   return {
